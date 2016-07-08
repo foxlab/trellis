@@ -22,6 +22,13 @@ Make sure all dependencies have been installed before moving on:
 1. Configure your WordPress sites in `group_vars/development/wordpress_sites.yml` and in `group_vars/development/vault.yml`
 2. Run `vagrant up`
 
+## Add new Wordpress sites
+
+1. Configure your WordPress sites in `group_vars/development/wordpress_sites.yml` and in `group_vars/development/vault.yml`
+2. Clone Bedrock: `$ git clone --depth=1 git@github.com:foxlab/bedrock.git site && rm -rf site/.git`
+3. Run `vagrant reload`
+4. Run `vagrant provision`
+
 # Trellis
 
 [![Build Status](https://travis-ci.org/roots/trellis.svg)](https://travis-ci.org/roots/trellis)
