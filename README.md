@@ -1,3 +1,27 @@
+# FoxLab Workflow
+
+## Requirements
+
+Make sure all dependencies have been installed before moving on:
+
+* [Ansible](http://docs.ansible.com/ansible/intro_installation.html#latest-releases-via-pip) 2.0.2
+* [Virtualbox](https://www.virtualbox.org/wiki/Downloads) >= 4.3.10
+* [Vagrant](https://releases.hashicorp.com/vagrant/1.8.1/) 1.8.1
+* [vagrant-bindfs](https://github.com/gael-ian/vagrant-bindfs#installation) >= 0.3.1 (Windows users may skip this)
+* [vagrant-hostmanager](https://github.com/smdahlen/vagrant-hostmanager#installation)
+
+## Installation
+
+1. Create a new project directory: `$ mkdir example && cd example`
+2. Clone Trellis: `$ git clone --depth=1 git@github.com:foxlab/trellis.git && rm -rf trellis/.git`
+3. Clone Bedrock: `$ git clone --depth=1 git@github.com:foxlab/bedrock.git site && rm -rf site/.git`
+4. Install the Ansible Galaxy roles: `$ cd trellis && ansible-galaxy install -r requirements.yml`
+
+## Local development setup
+
+1. Configure your WordPress sites in `group_vars/development/wordpress_sites.yml` and in `group_vars/development/vault.yml`
+2. Run `vagrant up`
+
 # Trellis
 
 [![Build Status](https://travis-ci.org/roots/trellis.svg)](https://travis-ci.org/roots/trellis)
