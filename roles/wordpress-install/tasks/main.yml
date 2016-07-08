@@ -69,3 +69,10 @@
   args:
     chdir: "{{ www_root }}/{{ item.key }}/current/"
   with_dict: "{{ wordpress_sites }}"
+
+- name: Activate Sage theme (FoxLab Boilerplate)
+  command: wp theme activate "sage-master"
+           --allow-root
+  args:
+    chdir: "{{ www_root }}/{{ item.key }}/current/"
+  with_dict: "{{ wordpress_sites }}"
