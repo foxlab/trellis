@@ -68,3 +68,10 @@
   args:
     chdir: "{{ www_root }}/{{ item.key }}/{{ item.value.current_path | default('current') }}/"
   with_dict: "{{ wordpress_sites }}"
+
+- name: Install Sage theme (FoxLab Boilerplate)
+  command: wp theme install https://github.com/foxlab/sage/archive/master.zip
+           --allow-root
+  args:
+    chdir: "{{ www_root }}/{{ item.key }}/current/"
+  with_dict: "{{ wordpress_sites }}"
