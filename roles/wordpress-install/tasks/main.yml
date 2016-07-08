@@ -62,3 +62,9 @@
   with_dict: "{{ wordpress_sites }}"
   when: item.value.site_install | default(true) and item.value.multisite.enabled | default(false)
   changed_when: "'The network already exists.' not in wp_install_results.stdout"
+
+- name: Delete sample page
+  shell: "wp post delete --allow-root $(wp post list --allow-root --post_type=page,post --format=ids) && wp post delete --allow-root $(wp post list --allow-root --post_type=page,post --post_status=trash --format=ids)"
+  args:
+    chdir: "{{ www_root }}/{{ item.key }}/{{ item.value.current_path | default('current') }}/"
+  with_dict: "{{ wordpress_sites }}"
