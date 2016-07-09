@@ -26,12 +26,14 @@ Make sure all dependencies have been installed before moving on:
 
 1. Configure your WordPress sites in `group_vars/development/wordpress_sites.yml` and in `group_vars/development/vault.yml`
 2. Clone Bedrock: `$ git clone --depth=1 git@github.com:foxlab/bedrock.git site && rm -rf site/.git`
-3. Run `vagrant reload`
-4. Run `vagrant provision`
-
-5. Navigate to the theme directory
-6. Run `npm install`
-7. Run `bower install`
+3. Navigate to the trellis directory
+4. Run `vagrant reload --provision`
+5. Navigate to the site directory
+6. Run `composer update`
+7. Navigate to the theme directory
+8. Run `npm install`
+9. Run `bower install`
+10. Run `gulp`
 
 ## Using BrowserSync
 
