@@ -6,8 +6,14 @@
     chdir: "{{ www_root }}/{{ item.key }}/current/"
   with_dict: "{{ wordpress_sites }}"
 
+- name: Rename sage theme
+  command: mv sage-master sage
+  args:
+    chdir: "{{ www_root }}/{{ item.key }}/current/web/app/themes/"
+  with_dict: "{{ wordpress_sites }}"
+
 - name: Activate Sage theme (FoxLab Boilerplate)
-  command: wp theme activate "sage-master"
+  command: wp theme activate "sage"
            --allow-root
   args:
     chdir: "{{ www_root }}/{{ item.key }}/current/"
