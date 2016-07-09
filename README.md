@@ -22,12 +22,28 @@ Make sure all dependencies have been installed before moving on:
 1. Configure your WordPress sites in `group_vars/development/wordpress_sites.yml` and in `group_vars/development/vault.yml`
 2. Run `vagrant up`
 
-## Add new Wordpress sites
+## Add and start new Wordpress site dev
 
 1. Configure your WordPress sites in `group_vars/development/wordpress_sites.yml` and in `group_vars/development/vault.yml`
 2. Clone Bedrock: `$ git clone --depth=1 git@github.com:foxlab/bedrock.git site && rm -rf site/.git`
 3. Run `vagrant reload`
 4. Run `vagrant provision`
+
+5. Navigate to the theme directory
+6. Run `npm install`
+7. Run `bower install`
+
+## Using BrowserSync
+
+To use BrowserSync during `gulp watch` you need to update `devUrl` at the bottom of `assets/manifest.json` to reflect your local development hostname.
+
+```json
+...
+  "config": {
+    "devUrl": "http://project-name.dev"
+  }
+...
+```
 
 # Trellis
 
